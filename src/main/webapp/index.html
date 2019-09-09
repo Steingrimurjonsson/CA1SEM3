@@ -55,7 +55,7 @@
             }
             butY.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1/api/student/year" + txt.value;
+                let url = "https://ruffsacks.com/CA1/api/student/sId/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {

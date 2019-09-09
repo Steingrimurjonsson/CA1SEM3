@@ -53,6 +53,16 @@ public class StudentFacade {
             em.close();
         }
     }
+    
+     public Student getStudentBysId(int sId) {
+        EntityManager em = emf.createEntityManager();
+        try{
+            Student student = em.find(Student.class, sId);
+            return student;
+        }finally{
+            em.close();
+        }
+    }
 
     public List<Student> getStudentByName(String name) {
         EntityManager em = emf.createEntityManager();
@@ -60,6 +70,16 @@ public class StudentFacade {
             TypedQuery <Student> query =
                     em.createQuery("Select m from Student m where m.name =:name", Student.class);
             return query.setParameter("name", name).getResultList();
+        } finally{
+            em.close();
+        }
+    }
+    public List<Student> getStudentsByColor(String color) {
+        EntityManager em = emf.createEntityManager();
+        try{
+            TypedQuery <Student> query =
+                    em.createQuery("Select m from Student m where m.color =:color", Student.class);
+            return query.setParameter("color", color).getResultList();
         } finally{
             em.close();
         }

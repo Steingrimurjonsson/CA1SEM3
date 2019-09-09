@@ -42,14 +42,22 @@ public class ResourceStudent {
         FACADE.populateStudent();
         return "{\"msg\":\"done!\"}";
     }
-
+    @Path("/sId/{sId}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getStudentBysId(@PathParam ("sId") int sId) {
+        Student student = FACADE.getStudentBysId(sId);
+        return GSON.toJson(student);
+    }
+    
     @Path("{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getStudentById(@PathParam ("id") int id) {
+    public String getStudentByID(@PathParam ("id") int id) {
         Student student = FACADE.getStudentByID(id);
         return GSON.toJson(student);
     }
+    
         @Path("count")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -63,6 +71,14 @@ public class ResourceStudent {
     public String getAllStudent() {
         List<Student>  student = FACADE.getAllStudent();
         return GSON.toJson(student);
+        
+    }
+      @Path("color")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getStudentsWithColor(@PathParam ("color") String color) {
+        List<Student>  student = FACADE.getStudentsByColor(color);
+         return GSON.toJson(student);
         
     }
        @Path("colorOf/{name}")
