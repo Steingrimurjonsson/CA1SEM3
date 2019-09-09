@@ -42,7 +42,7 @@ public class ResourceStudent {
         FACADE.populateStudent();
         return "{\"msg\":\"done!\"}";
     }
-    @Path("/sId/{sId}")
+    @Path("sId/{sId}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getStudentBysId(@PathParam ("sId") int sId) {
@@ -73,7 +73,7 @@ public class ResourceStudent {
         return GSON.toJson(student);
         
     }
-      @Path("color")
+      @Path("color/{color}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getStudentsWithColor(@PathParam ("color") String color) {
@@ -104,10 +104,10 @@ public class ResourceStudent {
         throw new UnsupportedOperationException();
     }
     
-    @PUT
+ /*   @PUT
     @Path("/{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     public void update(Student entity, @PathParam("id") int id) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 }

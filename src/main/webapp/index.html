@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CA1 - Student</title>
+        <title>CA1SEM3 - Student</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
@@ -36,7 +36,7 @@
             }
             but.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1/api/student/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/student/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -46,7 +46,7 @@
 
             but2.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1/api/student/all";
+                let url = "https://ruffsacks.com/CA1SEM3/api/student/all";
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -56,7 +56,7 @@
             }
             butY.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1/api/student/sId/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/student/sId/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -66,7 +66,7 @@
             }
             butN.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1/api/student/name/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/student/name/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -76,7 +76,7 @@
             }
               butC.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1/api/student/color/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/student/color/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -90,13 +90,15 @@
         <br><br><br><br><br><br><br>
 
         <h1>LINKS TO ASSIGNMENTS!</h1>
-        <a href="https://github.com/Steingrimurjonsson/CA1">link to github page</a>
+        <a href="https://github.com/Steingrimurjonsson/CA1SEM3">link to github page</a>
         <br>
         <h1>03-09-2019 Testing REST-endpoints</h1>  <br>
-        <a href="https://ruffsacks.com/CA1/api/student/count">Show count</a>  <br>
-        <a href="https://ruffsacks.com/CA1/api/student/all">Show all students</a>  <br>
-        <a href="https://ruffsacks.com/CA1/api/student/name/Stein">Add a name after "/"</a>  <br>
-        <a href="https://ruffsacks.com/CA1/api/student/1">Student ID</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/student/count">Show count</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/student/all">Show all students</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/student/name/Stein">Add a name after "/"</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/student/sId/4">Student ID</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/student/1">ID</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/student/color/green">color</a>  <br>
 
     </body>
 </html>
