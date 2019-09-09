@@ -7,10 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-/**
- *
- * Rename Class to a relevant name Add add relevant facade methods
- */
 public class StudentFacade {
 
     private static StudentFacade instance;
@@ -128,7 +124,7 @@ public class StudentFacade {
             em.persist(new Student(1, "Stein", "yellow"));
             em.persist(new Student(2, "Noell", "green"));
             em.persist(new Student(3, "Joachim", "yellow"));
-           
+            
             em.getTransaction().commit();
         } finally {
             em.close();
