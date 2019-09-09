@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CA1 - Student</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>STUDENTS</h1>
+
+
+        <form>
+            <input type="text" id="txt">
+            <input type="submit" id="but" value="FIND STUDENT BY ID">
+            <input type="submit" id="butY" value="FIND STUDENT BY COLOR">
+            <input type="submit" id="butN" value="FIND STUDENT BY NAME">
+            <input type="submit" id="but2" value="GET ALL STUDENT">
+
+        </form>
+
+        <div id="table"></div>
+
+        <script>
+            const txt = document.querySelector("#txt");
+            const table = document.querySelector("#table");
+            const but = document.querySelector("#but");
+            const but2 = document.querySelector("#but2");
+            const butY = document.querySelector("#butY");
+            const butN = document.querySelector("#butN");
+            function userToTable(user) {
+                var tableData = user.map(x => "<tr><td>" + x.id + "</td><td>" + x.name + "</td><td>" + x.sId + "</td><td>" + x.color + "</td></tr>");
+                tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>Name</th><th>Student ID</th><th>Color</th></tr>")
+                tableData.push("</table>");
+                return tableData.join('');
+            }
+            but.onclick = function (e) {
+                e.preventDefault();
+                let url = "https://ruffsacks.com/CA1/api/student/" + txt.value;
+                fetch(url)
+                        .then(res => res.json())
+                        .then(data => {
+                            table.innerHTML = userToTable(data);
+                        })
+            }
+
+            but2.onclick = function (e) {
+                e.preventDefault();
+                let url = "https://ruffsacks.com/CA1/api/student/all";
+                fetch(url)
+                        .then(res => res.json())
+                        .then(data => {
+                            table.innerHTML = userToTable(data);
+
+                        })
+            }
+            butY.onclick = function (e) {
+                e.preventDefault();
+                let url = "https://ruffsacks.com/CA1/api/student/year" + txt.value;
+                fetch(url)
+                        .then(res => res.json())
+                        .then(data => {
+                            table.innerHTML = userToTable(data);
+
+                        })
+            }
+            butN.onclick = function (e) {
+                e.preventDefault();
+                let url = "https://ruffsacks.com/CA1/api/student/name/" + txt.value;
+                fetch(url)
+                        .then(res => res.json())
+                        .then(data => {
+                            table.innerHTML = userToTable(data);
+
+                        })
+            }
+        </script>
+
+
+        <br><br><br><br><br><br><br>
+
+        <h1>LINKS TO ASSIGNMENTS!</h1>
+        <a href="https://github.com/Steingrimurjonsson/CA1">link to github page</a>
+        <br>
+        <h1>03-09-2019 Testing REST-endpoints</h1>  <br>
+        <a href="https://ruffsacks.com/CA1/api/student/count">Show count</a>  <br>
+        <a href="https://ruffsacks.com/CA1/api/student/all">Show all students</a>  <br>
+        <a href="https://ruffsacks.com/CA1/api/student/name/Stein">Add a name after "/"</a>  <br>
+        <a href="https://ruffsacks.com/CA1/api/student/1">Student ID</a>  <br>
+
+    </body>
+</html>
