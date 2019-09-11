@@ -84,4 +84,12 @@ public class JokeFacade {
             em.close();
         }
     }
+    public Joke getRandomJoke()
+    {  
+      int randomNumber =(int)(Math.random() * 3) + 1; 
+      
+          Joke joke = getJokeByjId(randomNumber);
+        
+        return joke;
+    }
 }

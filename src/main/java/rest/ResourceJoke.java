@@ -67,6 +67,13 @@ public class ResourceJoke {
         return GSON.toJson(joke);
         
     }
+    @Path("random")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+        public String getRandomJoke(@PathParam ("randomJoke") String randomJoke) {
+        Joke joke = FACADE.getRandomJoke();
+        return GSON.toJson(joke);
+    }
     
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
