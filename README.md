@@ -14,4 +14,4 @@ Using RestAssured to test REST Endpoints
 How to set up a WEBsite with a personal domain
 How to set up a WEBsite to use HTTPS
 
-[Link to the assignment](https://docs.google.com/document/d/12hKo2N_VAHISCKVAxdqMpeiKGDSJajBzHJ182bHUdPU/edit#heading=h.sc2hug11mudv)
+[Link to the assignment description](https://docs.google.com/document/d/12hKo2N_VAHISCKVAxdqMpeiKGDSJajBzHJ182bHUdPU/edit#heading=h.sc2hug11mudv)
