@@ -1,4 +1,4 @@
-# CA1SEM3
+# CA1SEM3 by Group 3 [Link to groups](https://docs.google.com/spreadsheets/d/1L1s98sObx-5B3_4rPRIljbxhy6G2bIfXrrbq29ZVmSs/edit#gid=0)
 
 [![Build Status](https://travis-ci.com/Steingrimurjonsson/CA1SEM3.svg?branch=master)](https://travis-ci.com/Steingrimurjonsson/CA1SEM3)
 
