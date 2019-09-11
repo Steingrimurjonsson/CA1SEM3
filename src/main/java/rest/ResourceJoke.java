@@ -59,7 +59,7 @@ public class ResourceJoke {
         return GSON.toJson(joke);
     }
 
-    @Path("jokes")
+    @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAllJokes(@PathParam ("theJoke") String theJoke) {

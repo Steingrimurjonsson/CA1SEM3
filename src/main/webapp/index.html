@@ -12,9 +12,8 @@
         <form>
             <input type="text" id="txt">
             <input type="submit" id="but" value="FIND STUDENT BY ID">
-            <input type="submit" id="butY" value="FIND STUDENT BY COLOR">
             <input type="submit" id="butN" value="FIND STUDENT BY NAME">
-            <input type="submit" id="but2" value="GET ALL STUDENT">
+            <input type="submit" id="but2" value="Reload Names">
 
         </form>
 
@@ -74,7 +73,7 @@
 
                         })
             }
-              butC.onclick = function (e) {
+            butC.onclick = function (e) {
                 e.preventDefault();
                 let url = "https://ruffsacks.com/CA1SEM3/api/student/color/" + txt.value;
                 fetch(url)
@@ -85,12 +84,16 @@
                         })
             }
         </script>
-
-
+        <br><br><br>
+        <h1>LINKS TO ASSIGNMENTS!</h1>
+        <a href="https://ruffsacks.com/CA1SEM3/whodidwhat.html">Who Did What and our Group Contract</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/OurCoolJokes.html">Our Cool Jokes</a>  <br>
+        <a href="https://github.com/Steingrimurjonsson/CA1SEM3">Our Github Repo</a><br>
+        <a href="https://ruffsacks.com/CA1SEM3/feedBackFlow1">Our feedback on Flow-1</a>  <br>
         <br><br><br><br><br><br><br>
 
         <h1>LINKS TO ASSIGNMENTS!</h1>
-        <a href="https://github.com/Steingrimurjonsson/CA1SEM3">link to github page</a>
+
         <br>
         <h1>03-09-2019 Testing REST-endpoints</h1>  <br>
         <a href="https://ruffsacks.com/CA1SEM3/api/student/count">Show count</a>  <br>
