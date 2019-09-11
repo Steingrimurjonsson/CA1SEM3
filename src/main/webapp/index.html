@@ -13,7 +13,7 @@
             <input type="text" id="txt">
             <input type="submit" id="but" value="FIND STUDENT BY ID">
             <input type="submit" id="butN" value="FIND STUDENT BY NAME">
-            <input type="submit" id="but2" value="Reload Names">
+            <input type="submit" id="but2" value="Load/Reload Names">
 
         </form>
 
@@ -35,7 +35,7 @@
             }
             but.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/student/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -45,7 +45,7 @@
 
             but2.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/student/all";
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/all";
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -55,7 +55,7 @@
             }
             butY.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/student/sId/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/sId/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -65,7 +65,7 @@
             }
             butN.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/student/name/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/name/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -75,7 +75,7 @@
             }
             butC.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/student/color/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/color/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
@@ -96,12 +96,12 @@
 
         <br>
         <h1>03-09-2019 Testing REST-endpoints</h1>  <br>
-        <a href="https://ruffsacks.com/CA1SEM3/api/student/count">Show count</a>  <br>
-        <a href="https://ruffsacks.com/CA1SEM3/api/student/all">Show all students</a>  <br>
-        <a href="https://ruffsacks.com/CA1SEM3/api/student/name/Stein">Add a name after "/"</a>  <br>
-        <a href="https://ruffsacks.com/CA1SEM3/api/student/sId/4">Student ID</a>  <br>
-        <a href="https://ruffsacks.com/CA1SEM3/api/student/1">ID</a>  <br>
-        <a href="https://ruffsacks.com/CA1SEM3/api/student/color/green">color</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/groupmembers/count">Show count</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/groupmembers/all">Show all students</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/groupmembers/name/Stein">Add a name after "/"</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/groupmembers/sId/4">Student ID</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/groupmembers/1">ID</a>  <br>
+        <a href="https://ruffsacks.com/CA1SEM3/api/groupmembers/color/green">color</a>  <br>
 
     </body>
 </html>
