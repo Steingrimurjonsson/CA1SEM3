@@ -89,6 +89,14 @@ public class ResourceStudent {
         return GSON.toJson(color);
         
     }
+          @Path("jokes")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getAllJokes(@PathParam ("joke") String joke) {
+        List<Joke>  joke = FACADE.getAllJokes(joke);
+        return GSON.toJson(joke);
+        
+    }
 
     @Path("name/{name}")
     @GET

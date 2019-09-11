@@ -1,5 +1,6 @@
 package facades;
 
+import entities.Joke;
 import entities.Student;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -39,12 +40,31 @@ public class StudentFacade {
         }
         
     }
+      public long getJokeCount(){
+        EntityManager em = emf.createEntityManager();
+        try{
+            long studentCount = (long)em.createQuery("SELECT COUNT(m) FROM Joke m").getSingleResult();
+            return studentCount;
+        }finally{  
+            em.close();
+        }
+        
+    }
     
     public Student getStudentByID(int id) {
         EntityManager em = emf.createEntityManager();
         try{
             Student student = em.find(Student.class, id);
             return student;
+        }finally{
+            em.close();
+        }
+    }
+      public Student getJokeByID(int id) {
+        EntityManager em = emf.createEntityManager();
+        try{
+            Joke joke = em.find(Joke.class, id);
+            return joke;
         }finally{
             em.close();
         }
@@ -105,7 +125,16 @@ public class StudentFacade {
             em.close();
         }
     }
-    
+       public List<Joke> getAllJokes() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery query
+                    = em.createQuery("Select m from Joke m", Joke.class);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
     public List<Student> getColorsByStudentName(String name) {
         EntityManager em = emf.createEntityManager();
         try{
