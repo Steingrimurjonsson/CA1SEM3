@@ -40,7 +40,7 @@ public class StudentFacade {
         }
         
     }
-      public long getJokeCount(){
+    /*  public long getJokeCount(){
         EntityManager em = emf.createEntityManager();
         try{
             long studentCount = (long)em.createQuery("SELECT COUNT(m) FROM Joke m").getSingleResult();
@@ -50,7 +50,7 @@ public class StudentFacade {
         }
         
     }
-    
+    */
     public Student getStudentByID(int id) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -59,8 +59,8 @@ public class StudentFacade {
         }finally{
             em.close();
         }
-    }
-      public Student getJokeByID(int id) {
+    }/*
+      public Joke getJokeByID(int id) {
         EntityManager em = emf.createEntityManager();
         try{
             Joke joke = em.find(Joke.class, id);
@@ -69,7 +69,7 @@ public class StudentFacade {
             em.close();
         }
     }
-    
+    */
      public Student getStudentBysId(int sId) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -124,7 +124,7 @@ public class StudentFacade {
         } finally {
             em.close();
         }
-    }
+    }/*
        public List<Joke> getAllJokes() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -134,7 +134,7 @@ public class StudentFacade {
         } finally {
             em.close();
         }
-    }
+    }*/
     public List<Student> getColorsByStudentName(String name) {
         EntityManager em = emf.createEntityManager();
         try{
