@@ -69,7 +69,7 @@ public class StudentFacade {
             em.close();
         }
     }
-    */
+   
      public Student getStudentBysId(int sId) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -78,8 +78,17 @@ public class StudentFacade {
         }finally{
             em.close();
         }
+    } */
+    public List<Student> getStudentBysId(int sId) {
+        EntityManager em = emf.createEntityManager();
+        try{
+            TypedQuery <Student> query =
+                    em.createQuery("Select m from Student m where m.sId =:sId", Student.class);
+            return query.setParameter("sId", sId).getResultList();
+        } finally{
+            em.close();
+        }
     }
-
     public List<Student> getStudentByName(String name) {
         EntityManager em = emf.createEntityManager();
         try{

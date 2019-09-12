@@ -46,7 +46,7 @@ public class ResourceStudent {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getStudentBysId(@PathParam ("sId") int sId) {
-        Student student = FACADE.getStudentBysId(sId);
+        List<Student> student = FACADE.getStudentBysId(sId);
         return GSON.toJson(student);
     }
     
