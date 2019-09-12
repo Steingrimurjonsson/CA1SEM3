@@ -38,14 +38,15 @@ and open the template in the editor.
             //getRandom
             const random = document.querySelector("#random");
 
-            function JokeToTable(joke) {
-                var tableData = joke.map(x => "<tr><td>" + x.id + "</td><td><p>" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
-                tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>")
+            function JokeToTable(item) {
+                var tableData = item.map(x => "<tr><td>" + x.id + "</td><td><p>" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
+                tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>");
                 tableData.push("</table>");
                 return tableData.join('');
             }
-            function jokeToP(random) {
-                var tableData = random.map(x => "<p id=\"random\">" + x.theJoke + "</p>");
+            function jokeToP(item) {
+                var tableData = [item.theJoke];
+               // item => "<p class=\"random\">" + x.theJoke + "</p>");
                 return tableData;
             }
             but3.onclick = function (e) {
