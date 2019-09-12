@@ -40,27 +40,22 @@ and open the template in the editor.
             const random = document.querySelector("#random");
 
             function JokeToTable(item) {
-                //var tableData = item.map(item => "<tr><td>" + item.id + "</td><td><p>" + item.theJoke + "</p></td><td>" + item.jId + "</td><td>" + item.ref + "</td></tr>");
-                //tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>");
-                //tableData.push("</table>");
-               // return tableData.join('');
-
                 var tableData = item.map(x => "<tr><td>" + x.id + "</td><td><p>" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
-               tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>");
+                tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>");
                 tableData.push("</table>");
                 return tableData.join('');
             }
-            //function jokeToP(item) {
-            //    var tableData = [item.theJoke];
-            //    return tableData;
-           // }
+            function jokeToP(item) {
+                var tableData = [item.theJoke];
+                return tableData;
+            }
             but3.onclick = function (e) {
                 e.preventDefault();
                 let url = "https://ruffsacks.com/CA1SEM3/api/joke/random";
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
-                            table.innerHTML = JokeToTable(data);
+                            random.innerHTML = jokeToP(data);
                         });
             };
 

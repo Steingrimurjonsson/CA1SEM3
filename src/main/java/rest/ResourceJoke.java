@@ -71,7 +71,7 @@ public class ResourceJoke {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
         public String getRandomJoke(@PathParam ("random") String random) {
-        List<Joke> joke = FACADE.getRandomJoke();
+        Joke joke = FACADE.getRandomJoke();
         return GSON.toJson(joke);
     }
     

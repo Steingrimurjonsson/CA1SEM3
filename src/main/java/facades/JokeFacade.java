@@ -59,6 +59,7 @@ public class JokeFacade {
         }
     }
       
+        
      public List<Joke> getJokeByjId(int jId) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -97,22 +98,13 @@ public class JokeFacade {
         }
     }
     
-      public List<Joke> getRandomJoke() {
-        EntityManager em = emf.createEntityManager();
-        try {
-            TypedQuery query
-                    = em.createQuery("SELECT * FROM Joke ORDER BY RAND() LIMIT 1", Joke.class);
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-    /*public List<Joke> getRandomJoke()
+ 
+    public Joke getRandomJoke()
     {  
       int randomNumber =(int)(Math.random() * 3) + 1; 
       
-          List<Joke> joke = getJokeByjId(randomNumber);
+          Joke joke = getJokeByID(randomNumber);
         
         return joke;
-    }*/
+    }
 }
