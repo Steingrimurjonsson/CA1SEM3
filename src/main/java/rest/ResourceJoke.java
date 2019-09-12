@@ -3,10 +3,10 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.Joke;
-import entities.Student;
+
 import facades.JokeFacade;
 import utils.EMF_Creator;
-import facades.StudentFacade;
+
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -54,7 +54,7 @@ public class ResourceJoke {
     @Path("jId/{jId}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getJokeBysId(@PathParam ("jId") int jId) {
+    public String getJokeByjId(@PathParam ("jId") int jId) {
         Joke joke = FACADE.getJokeByjId(jId);
         return GSON.toJson(joke);
     }
@@ -70,7 +70,7 @@ public class ResourceJoke {
     @Path("random")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-        public String getRandomJoke(@PathParam ("randomJoke") String randomJoke) {
+        public String getRandomJoke(@PathParam ("random") String random) {
         Joke joke = FACADE.getRandomJoke();
         return GSON.toJson(joke);
     }

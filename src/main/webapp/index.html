@@ -35,7 +35,7 @@
             }
             but.onclick = function (e) {
                 e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/" + txt.value;
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/sId/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
