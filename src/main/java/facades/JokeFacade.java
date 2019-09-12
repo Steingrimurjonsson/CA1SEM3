@@ -52,7 +52,7 @@ public class JokeFacade {
         EntityManager em = emf.createEntityManager();
         try{
             TypedQuery <Joke> query =
-                    em.createQuery("Select m from Student m where m.jId =:jId", Joke.class);
+                    em.createQuery("Joke m from Joke m where m.jId =:jId", Joke.class);
             return query.setParameter("jId", jId).getResultList();
         } finally{
             em.close();
