@@ -9,7 +9,7 @@ and open the template in the editor.
         <title>Our Cool Jokes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     </head>
 
     <body>
@@ -26,18 +26,18 @@ and open the template in the editor.
 
         <div id="table"></div>
 
-        
+
         <p id="random"></p>
         <script>
             const txt = document.querySelector("#txt");
             const table = document.querySelector("#table");
             const but = document.querySelector("#but");
             const but2 = document.querySelector("#but2");
-              const but3 = document.querySelector("#but3");
-            
+            const but3 = document.querySelector("#but3");
+
             //getRandom
-             const random = document.querySelector("#random");
-             
+            const random = document.querySelector("#random");
+
             function userToTable(joke) {
                 var tableData = joke.map(x => "<tr><td>" + x.id + "</td><td><p>" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
                 tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>")
@@ -48,7 +48,7 @@ and open the template in the editor.
                 var tableData = random.map(x => "<p id=\"random\">" + x.theJoke + "</p>");
                 return tableData;
             }
-               but3.onclick = function (e) {
+            but3.onclick = function (e) {
                 e.preventDefault();
                 let url = "https://ruffsacks.com/CA1SEM3/api/joke/random";
                 fetch(url)
@@ -57,7 +57,7 @@ and open the template in the editor.
                             random.innerHTML = jokeToP(data);
                         })
             }
-            
+
             but.onclick = function (e) {
                 e.preventDefault();
                 let url = "https://ruffsacks.com/CA1SEM3/api/joke/jId/" + txt.value;
@@ -78,7 +78,7 @@ and open the template in the editor.
 
                         })
             }
-            
+
         </script>
 
 
@@ -86,7 +86,7 @@ and open the template in the editor.
 
         <h1>LINKS TO ASSIGNMENTS!</h1>
         <a href="https://github.com/Steingrimurjonsson/CA1SEM3">link to github page</a>
-      
+
 
     </body>
 </html>
