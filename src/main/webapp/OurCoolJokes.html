@@ -44,8 +44,8 @@ and open the template in the editor.
                 tableData.push("</table>");
                 return tableData.join('');
             }
-            function jokeToP(joke) {
-                var tableData = joke.map(x => "<p id=\"random\">" + x.theJoke + "</p>");
+            function jokeToP(random) {
+                var tableData = random.map(x => "<p id=\"random\">" + x.theJoke + "</p>");
                 return tableData;
             }
                but3.onclick = function (e) {

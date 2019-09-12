@@ -33,15 +33,15 @@
                 tableData.push("</table>");
                 return tableData.join('');
             }
-            but.onclick = function (e) {
-                e.preventDefault();
-                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/sId/" + txt.value;
-                fetch(url)
-                        .then(res => res.json())
-                        .then(data => {
-                            table.innerHTML = userToTable(data);
-                        })
-            }
+          //  but.onclick = function (e) {
+            //    e.preventDefault();
+              //  let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/sId/" + txt.value;
+                //fetch(url)
+                  //      .then(res => res.json())
+                    //    .then(data => {
+                      //      table.innerHTML = userToTable(data);
+                        //})
+            //}
 
             but2.onclick = function (e) {
                 e.preventDefault();
@@ -66,6 +66,16 @@
             butN.onclick = function (e) {
                 e.preventDefault();
                 let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/name/" + txt.value;
+                fetch(url)
+                        .then(res => res.json())
+                        .then(data => {
+                            table.innerHTML = userToTable(data);
+
+                        })
+            } 
+            but.onclick = function (e) {
+                e.preventDefault();
+                let url = "https://ruffsacks.com/CA1SEM3/api/groupmembers/sId/" + txt.value;
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
