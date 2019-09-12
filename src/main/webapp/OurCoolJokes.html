@@ -38,14 +38,14 @@ and open the template in the editor.
             //getRandom
              const random = document.querySelector("#random");
              
-            function userToTable(user) {
-                var tableData = user.map(x => "<tr><td>" + x.id + "</td><td><p>" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
+            function userToTable(joke) {
+                var tableData = joke.map(x => "<tr><td>" + x.id + "</td><td><p>" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
                 tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>")
                 tableData.push("</table>");
                 return tableData.join('');
             }
-            function jokeToP(user) {
-                var tableData = user.map(x => "<tr><td>" + x.id + "</td><td><p class=\"random\">" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
+            function jokeToP(joke) {
+                var tableData = joke.map(x => "<tr><td>" + x.id + "</td><td><p class=\"random\">" + x.theJoke + "</p></td><td>" + x.jId + "</td><td>" + x.ref + "</td></tr>");
                 tableData.unshift("<table class=\"table\"><tr><th>ID</th><th>The Joke</th><th>Joke ID</th><th>Reference</th></tr>")
                 tableData.push("</table>");
                 return tableData.join('');
@@ -56,7 +56,7 @@ and open the template in the editor.
                 fetch(url)
                         .then(res => res.json())
                         .then(data => {
-                            table.innerHTML = jokeToP(data);
+                            random.innerHTML = jokeToP(data);
                         })
             }
             
