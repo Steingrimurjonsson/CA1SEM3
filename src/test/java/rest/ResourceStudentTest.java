@@ -14,8 +14,10 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.util.HttpStatus;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -137,5 +139,23 @@ public class ResourceStudentTest {
                 then().
                 statusCode(200).
                 body("color", hasItem("yellow"));
+    }
+    
+    @Test
+    public void testGetAllStudents() throws Exception {
+        given()
+                .get("/groupmembers/all").then()
+                .assertThat()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("sId", containsInAnyOrder(student1.getsId(), student2.getsId(), student3.getsId(), student4.getsId()));
+    }
+    
+    @Test
+    public void testGetStudentsById() throws Exception {
+        given()
+                .get("/groupmembers/" + student1.getId()).then()
+                .assertThat()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("id", equalTo(student1.getId()));
     }
 }
