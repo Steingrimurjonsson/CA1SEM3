@@ -162,7 +162,7 @@ public class StudentFacade {
             em.persist(new Student(1, "Stein", "yellow"));
             em.persist(new Student(2, "Noell", "green"));
             em.persist(new Student(3, "Joachim", "yellow"));
-            
+            em.persist(new Student(4, "Christian", "yellow"));
             em.getTransaction().commit();
         } finally {
             em.close();
