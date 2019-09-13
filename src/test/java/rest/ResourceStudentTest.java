@@ -4,6 +4,7 @@ import entities.Student;
 import utils.EMF_Creator;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
 import io.restassured.parsing.Parser;
 import java.net.URI;
 import javax.persistence.EntityManager;
@@ -14,6 +15,7 @@ import org.glassfish.grizzly.http.util.HttpStatus;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItem;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -127,4 +129,13 @@ public class ResourceStudentTest {
                 .statusCode(HttpStatus.OK_200.getStatusCode())
                 .body("Joachim" , equalTo("yellow"));
     }*/
+    
+    @Test
+    public void testGetStudentByName() throws Exception {
+        when().
+                get("/groupmembers/name/Christian").
+                then().
+                statusCode(200).
+                body("color", hasItem("yellow"));
+    }
 }
