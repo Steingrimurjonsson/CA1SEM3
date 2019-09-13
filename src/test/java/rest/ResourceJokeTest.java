@@ -1,6 +1,6 @@
 package rest;
 
-import entities.Student;
+import entities.Joke;
 import utils.EMF_Creator;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
@@ -24,7 +24,7 @@ import utils.EMF_Creator.Strategy;
 
 //Uncomment the line below, to temporarily disable this test
 //@Disabled
-public class ResourceStudentTest {
+public class ResourceJokeTest {
 
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
@@ -34,9 +34,9 @@ public class ResourceStudentTest {
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
     private static HttpServer httpServer;
     private static EntityManagerFactory emf;
-    private Student student1;
-    private Student student2;
-    private Student student3;
+    private Joke j1;
+    private Joke j2;
+    private Joke j3;
 
     static HttpServer startServer() {
         ResourceConfig rc = ResourceConfig.forApplication(new ApplicationConfig());
@@ -71,15 +71,15 @@ public class ResourceStudentTest {
     public void setUp() {
         EntityManager em = emf.createEntityManager();
  
-        student1 = new Student(1, "Stein", "yellow");
-        student2 = new Student(2, "Noell", "green");
-        student3 = new Student(3, "Joachim", "yellow");
+        j1 = new Joke(1, "GRINER", "random");
+        j2 = new Joke(2, "SJOVT", "ref");
+        j3 = new Joke(3, "HAHA", "cool");
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("Student.deleteAllRows").executeUpdate();
-            em.persist(student1);
-            em.persist(student2);
-            em.persist(student3);
+            em.createNamedQuery("Joke.deleteAllRows").executeUpdate();
+            em.persist(j1);
+            em.persist(j2);
+            em.persist(j3);
         
 
             em.getTransaction().commit();
@@ -91,7 +91,7 @@ public class ResourceStudentTest {
     @Test
     public void testServerIsUp() {
         System.out.println("Testing is server UP");
-        given().when().get("/groupmembers").then().statusCode(200);
+        given().when().get("/joke").then().statusCode(200);
     }
 
     //This test assumes the database contains two rows
@@ -99,19 +99,19 @@ public class ResourceStudentTest {
     public void testDummyMsg() throws Exception {
         given()
                 .contentType("application/json")
-                .get("/groupmembers/").then()
+                .get("/joke/").then()
                 .assertThat()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("msg", equalTo("Student"));
+                .body("msg", equalTo("Joke"));
     }
-
-    @Test
-    public void testCount() throws Exception {
-        given()
-                .contentType("application/json")
-                .get("/groupmembers/count").then()
-                .assertThat()
-                .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("count", equalTo(3));
-    }
+//
+//    @Test
+//    public void testCount() throws Exception {
+//        given()
+//                .contentType("application/json")
+//                .get("/joke/count").then()
+//                .assertThat()
+//                .statusCode(HttpStatus.OK_200.getStatusCode())
+//                .body("count", equalTo(3));
+//    }
 }
