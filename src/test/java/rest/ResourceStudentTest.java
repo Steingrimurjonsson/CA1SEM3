@@ -37,6 +37,7 @@ public class ResourceStudentTest {
     private Student student1;
     private Student student2;
     private Student student3;
+    private Student student4;
 
     static HttpServer startServer() {
         ResourceConfig rc = ResourceConfig.forApplication(new ApplicationConfig());
@@ -74,12 +75,14 @@ public class ResourceStudentTest {
         student1 = new Student(1, "Stein", "yellow");
         student2 = new Student(2, "Noell", "green");
         student3 = new Student(3, "Joachim", "yellow");
+        student4 = new Student(4, "Christian", "yellow");
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Student.deleteAllRows").executeUpdate();
             em.persist(student1);
             em.persist(student2);
             em.persist(student3);
+            em.persist(student4);
         
 
             em.getTransaction().commit();
@@ -112,6 +115,16 @@ public class ResourceStudentTest {
                 .get("/groupmembers/count").then()
                 .assertThat()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("count", equalTo(3));
+                .body("count", equalTo(4));
     }
+    
+    /* @Test
+    public void testGetColorByStudentName() throws Exception {
+        given()
+                .contentType("application/json")
+                .get("/groupmembers/colorOf/{name}").then()
+                .assertThat()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("Joachim" , equalTo("yellow"));
+    }*/
 }

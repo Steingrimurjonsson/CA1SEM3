@@ -55,7 +55,7 @@ public class ResourceStudent {
         return GSON.toJson(student);
     }
     
-        @Path("count")
+    @Path("count")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getStudentCount() {

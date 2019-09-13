@@ -31,6 +31,7 @@ public class FacadeTest {
     private Student student1 = new Student(1, "Stein", "yellow");
     private Student student2 = new Student(2, "Noell", "green");
     private Student student3 = new Student(3, "Joachim", "yellow");
+    private Student student4 = new Student(4, "Christian", "yellow");
 
 
     public FacadeTest() {
@@ -71,6 +72,7 @@ public class FacadeTest {
             em.persist(student1);
             em.persist(student2);
             em.persist(student3);
+            em.persist(student4);
        
 
             em.getTransaction().commit();
@@ -86,7 +88,7 @@ public class FacadeTest {
 
     @Test
     public void testStudentCount() {
-        assertEquals(3, facade.getStudentCount(), "Expects 3 rows in the database");
+        assertEquals(4, facade.getStudentCount(), "Expects 4 rows in the database");
     }
 
     @Test
