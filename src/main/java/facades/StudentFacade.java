@@ -5,7 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
-//todo
+
+
 public class StudentFacade {
 
     private static StudentFacade instance;
@@ -13,8 +14,11 @@ public class StudentFacade {
     
     private StudentFacade() {}
     
-    
- 
+    /**
+     *
+     * @param _emf
+     * @return
+     */
     public static StudentFacade getStudentFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
@@ -27,7 +31,10 @@ public class StudentFacade {
         return emf.createEntityManager();
     }
     
- 
+    /**
+     *
+     * @return
+     */
     public long getStudentCount(){
         EntityManager em = emf.createEntityManager();
         try{
@@ -39,6 +46,11 @@ public class StudentFacade {
         
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Student getStudentByID(int id) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -67,6 +79,12 @@ public class StudentFacade {
             em.close();
         }
     } */
+
+    /**
+     *
+     * @param sId
+     * @return
+     */
     public List<Student> getStudentBysId(int sId) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -77,6 +95,12 @@ public class StudentFacade {
             em.close();
         }
     }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
     public List<Student> getStudentByName(String name) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -87,6 +111,12 @@ public class StudentFacade {
             em.close();
         }
     }
+
+    /**
+     *
+     * @param color
+     * @return
+     */
     public List<Student> getStudentsByColor(String color) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -98,6 +128,13 @@ public class StudentFacade {
         }
     }
 
+    /**
+     *
+     * @param sId
+     * @param name
+     * @param color
+     * @return
+     */
     public Student addStudent(int sId, String name, String color) {
         Student student = new Student();
         student = new Student(sId, name, color);
@@ -112,6 +149,10 @@ public class StudentFacade {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Student> getAllStudent() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -123,6 +164,11 @@ public class StudentFacade {
         }
     }
     
+    /**
+     *
+     * @param name
+     * @return
+     */
     public List<Student> getColorsByStudentName(String name) {
         EntityManager em = emf.createEntityManager();
         try{
@@ -133,6 +179,10 @@ public class StudentFacade {
             em.close();
         }
     }
+
+    /**
+     *
+     */
     public void populateStudent() {
         EntityManager em = emf.createEntityManager();
         try {

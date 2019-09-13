@@ -24,46 +24,90 @@ public class Student implements Serializable {
     private String name;
     private String color;
     
-       public Student() {
+    public Student() {
     }
 
+    /**
+     *
+     * @param sId
+     * @param name
+     * @param color
+     */
     public Student(int sId, String name, String color) {
         this.sId = sId;
         this.name = name;
         this.color = color;
     }
-     @Override
+
+    /**
+     *
+     * @return
+     */
+    @Override
     public String toString() {
         return "Student{" + "id=" + id + ", sId=" + sId + ", name=" + name + ", color=" + color + '}';
     }
+
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getsId() {
         return sId;
     }
 
+    /**
+     *
+     * @param sId
+     */
     public void setsId(int sId) {
         this.sId = sId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     *
+     * @param color
+     */
     public void setColor(String color) {
         this.color = color;
     }

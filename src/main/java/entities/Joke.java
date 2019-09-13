@@ -24,46 +24,90 @@ public class Joke implements Serializable {
     private String theJoke;
     private String ref;
     
-       public Joke() {
+    public Joke() {
     }
 
+    /**
+     *
+     * @param jId
+     * @param theJoke
+     * @param ref
+     */
     public Joke(int jId, String theJoke, String ref) {
         this.jId = jId;
         this.theJoke = theJoke;
         this.ref = ref;
     }
-     @Override
+
+    /**
+     *
+     * @return
+     */
+    @Override
     public String toString() {
         return "Joke{" + "id=" + id + ", jId=" + jId + ", theJoke=" + theJoke + ", ref=" + ref + '}';
     }
+
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getjId() {
         return jId;
     }
 
+    /**
+     *
+     * @param jId
+     */
     public void setjId(int jId) {
         this.jId = jId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTheJoke() {
         return theJoke;
     }
 
+    /**
+     *
+     * @param theJoke
+     */
     public void setTheJoke(String theJoke) {
         this.theJoke = theJoke;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRef() {
         return ref;
     }
 
+    /**
+     *
+     * @param ref
+     */
     public void setRef(String ref) {
         this.ref = ref;
     }

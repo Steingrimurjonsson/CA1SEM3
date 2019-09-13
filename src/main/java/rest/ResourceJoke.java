@@ -34,19 +34,33 @@ public class ResourceJoke {
     private static final JokeFacade FACADE =  JokeFacade.getJokeFacade(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
             
-    
+    /**
+     *
+     * @return
+     */
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
         return "{\"msg\":\"Joke\"}";
     }
-   @Path("populate")
+
+    /**
+     *
+     * @return
+     */
+    @Path("populate")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String populate() {
         FACADE.populateJoke();
         return "{\"msg\":\"done!\"}";
     }
+
+    /**
+     *
+     * @param jId
+     * @return
+     */
     @Path("jId/{jId}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -55,6 +69,11 @@ public class ResourceJoke {
         return GSON.toJson(joke);
     }
 
+    /**
+     *
+     * @param theJoke
+     * @return
+     */
     @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -63,6 +82,12 @@ public class ResourceJoke {
         return GSON.toJson(joke);
         
     }
+
+    /**
+     *
+     * @param random
+     * @return
+     */
     @Path("random")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -71,6 +96,10 @@ public class ResourceJoke {
         return GSON.toJson(joke);
     }
     
+    /**
+     *
+     * @param entity
+     */
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void create(Joke entity) {

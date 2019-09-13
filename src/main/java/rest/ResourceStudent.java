@@ -26,19 +26,33 @@ public class ResourceStudent {
     private static final StudentFacade FACADE =  StudentFacade.getStudentFacade(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
             
-    
+    /**
+     *
+     * @return
+     */
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
         return "{\"msg\":\"Student\"}";
     }
-   @Path("populate")
+
+    /**
+     *
+     * @return
+     */
+    @Path("populate")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String populate() {
         FACADE.populateStudent();
         return "{\"msg\":\"done!\"}";
     }
+
+    /**
+     *
+     * @param sId
+     * @return
+     */
     @Path("sId/{sId}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -47,6 +61,11 @@ public class ResourceStudent {
         return GSON.toJson(student);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Path("{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -55,6 +74,10 @@ public class ResourceStudent {
         return GSON.toJson(student);
     }
     
+    /**
+     *
+     * @return
+     */
     @Path("count")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -62,6 +85,11 @@ public class ResourceStudent {
         long count = FACADE.getStudentCount();
         return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
     }
+
+    /**
+     *
+     * @return
+     */
     @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -70,6 +98,12 @@ public class ResourceStudent {
         return GSON.toJson(student);
         
     }
+
+    /**
+     *
+     * @param color
+     * @return
+     */
     @Path("color/{color}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -78,6 +112,12 @@ public class ResourceStudent {
          return GSON.toJson(student);
         
     }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
     @Path("colorOf/{name}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -87,6 +127,11 @@ public class ResourceStudent {
         
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     @Path("name/{name}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -95,6 +140,10 @@ public class ResourceStudent {
         return GSON.toJson(student);
     }
     
+    /**
+     *
+     * @param entity
+     */
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void create(Student entity) {

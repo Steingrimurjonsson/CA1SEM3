@@ -18,8 +18,11 @@ public class JokeFacade {
     
     private JokeFacade() {}
     
-    
- 
+    /**
+     *
+     * @param _emf
+     * @return
+     */
     public static JokeFacade getJokeFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
@@ -32,7 +35,11 @@ public class JokeFacade {
         return emf.createEntityManager();
     }
     
-      public long getJokeCount(){
+    /**
+     *
+     * @return
+     */
+    public long getJokeCount(){
         EntityManager em = emf.createEntityManager();
         try{
             long studentCount = (long)em.createQuery("SELECT COUNT(m) FROM Joke m").getSingleResult();
@@ -43,7 +50,12 @@ public class JokeFacade {
         
     }
       
-        public Joke getJokeByID(int id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Joke getJokeByID(int id) {
         EntityManager em = emf.createEntityManager();
         try{
             Joke joke = em.find(Joke.class, id);
@@ -53,8 +65,12 @@ public class JokeFacade {
         }
     }
       
-        
-     public List<Joke> getJokeByjId(int jId) {
+    /**
+     *
+     * @param jId
+     * @return
+     */
+    public List<Joke> getJokeByjId(int jId) {
         EntityManager em = emf.createEntityManager();
         try{
             TypedQuery <Joke> query =
@@ -65,8 +81,11 @@ public class JokeFacade {
         }
     }
 
-
-       public List<Joke> getAllJokes() {
+    /**
+     *
+     * @return
+     */
+    public List<Joke> getAllJokes() {
         EntityManager em = emf.createEntityManager();
         try {
             TypedQuery query
@@ -77,6 +96,9 @@ public class JokeFacade {
         }
     }
  
+    /**
+     *
+     */
     public void populateJoke() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -92,7 +114,10 @@ public class JokeFacade {
         }
     }
     
- 
+    /**
+     *
+     * @return
+     */
     public Joke getRandomJoke()
     {  
       int randomNumber =(int)(Math.random() * 3) + 1; 
