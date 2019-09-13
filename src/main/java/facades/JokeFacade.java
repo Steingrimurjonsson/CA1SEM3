@@ -115,8 +115,9 @@ public class JokeFacade {
     }
     
     /**
-     *
      * @return
+     * Getting a random number, multiplying it by 3 (because we have three jokes), and adding one (so that we will get a random number from 1-3).
+     * Then we call get joke by ID and pass it the random number we generated.
      */
     public Joke getRandomJoke()
     {  

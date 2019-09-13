@@ -59,27 +59,8 @@ public class StudentFacade {
         }finally{
             em.close();
         }
-    }/*
-      public Joke getJokeByID(int id) {
-        EntityManager em = emf.createEntityManager();
-        try{
-            Joke joke = em.find(Joke.class, id);
-            return joke;
-        }finally{
-            em.close();
-        }
     }
-   
-     public Student getStudentBysId(int sId) {
-        EntityManager em = emf.createEntityManager();
-        try{
-            Student student = em.find(Student.class, sId);
-            return student;
-        }finally{
-            em.close();
-        }
-    } */
-
+    
     /**
      *
      * @param sId
