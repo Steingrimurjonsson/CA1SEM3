@@ -7,17 +7,14 @@ import utils.EMF_Creator;
 import facades.StudentFacade;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-//Todo Remove or change relevant parts before ACTUAL use
 @Path("groupmembers")
 public class ResourceStudent {
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory(
@@ -89,14 +86,6 @@ public class ResourceStudent {
         return GSON.toJson(color);
         
     }
-       /*   @Path("jokes")
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public String getAllJokes(@PathParam ("joke") String joke) {
-        List<Joke>  joke = FACADE.getAllJokes(joke);
-        return GSON.toJson(joke);
-        
-    }*/
 
     @Path("name/{name}")
     @GET
