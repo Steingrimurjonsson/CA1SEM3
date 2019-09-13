@@ -70,7 +70,7 @@ public class ResourceStudent {
         return GSON.toJson(student);
         
     }
-      @Path("color/{color}")
+    @Path("color/{color}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getStudentsWithColor(@PathParam ("color") String color) {
@@ -78,10 +78,10 @@ public class ResourceStudent {
          return GSON.toJson(student);
         
     }
-       @Path("colorOf/{name}")
+    @Path("colorOf/{name}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getAcotorsByStudentName(@PathParam ("name") String name) {
+    public String getColorByStudentName(@PathParam ("name") String name) {
         List<Student>  color = FACADE.getColorsByStudentName(name);
         return GSON.toJson(color);
         

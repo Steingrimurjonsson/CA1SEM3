@@ -122,23 +122,32 @@ public class ResourceStudentTest {
                 .body("count", equalTo(4));
     }
     
-    /* @Test
+    /*@Test
     public void testGetColorByStudentName() throws Exception {
-        given()
-                .contentType("application/json")
-                .get("/groupmembers/colorOf/{name}").then()
-                .assertThat()
+        when()
+                .get("/groupmembers/colorOf/" + student2.getColor())
+                .then()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("Joachim" , equalTo("yellow"));
+                .body("color" , hasItem(student2.getColor()));
     }*/
     
     @Test
+    public void testGetStudentsWithColor() throws Exception {
+        given()
+                .get("/groupmembers/color/yellow")
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("color", containsInAnyOrder(student1.getColor(), student3.getColor(), student4.getColor()));
+    }
+    
+    @Test
     public void testGetStudentByName() throws Exception {
-        when().
-                get("/groupmembers/name/Christian").
-                then().
-                statusCode(200).
-                body("color", hasItem("yellow"));
+        given()
+                .get("/groupmembers/name/Christian")
+                .then()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("name", hasItem(student4.getName()));
     }
     
     @Test
